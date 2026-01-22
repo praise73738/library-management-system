@@ -1,42 +1,57 @@
-# Library Management System (LMS)
+Library Management System (LMS)
+Project Overview
+The Library Management System (LMS) is a web-based application designed to automate the process of managing books and student borrowing activities. It allows librarians to manage books and users while tracking borrowing and returning of books efficiently. This project is implemented using HTML, CSS, JavaScript (frontend), Python + Flask (backend), and SQLite (database).
 
-## SDLC Model Used
-Waterfall Model
-
-## System Design
-
-### System Architecture
-The Library Management System uses a three-tier architecture:
-- Frontend: HTML for user interaction
-- Backend: PHP for processing
-- Database: MySQL for data storage
-
-### System Modules
-1. Book Management Module  
-   Manages book records in the library.
-
-2. Student Management Module  
-   Manages student information.
-
-3. Borrowing Module  
-   Records borrowing of books by students.
-
-### Database Design
-
-Table: students  
-- student_id (VARCHAR)
-- student_name (VARCHAR)
-
-Table: books  
-- book_id (VARCHAR)
-- book_title (VARCHAR)
-
-Table: borrow_records  
-- student_id (VARCHAR)
-- book_id (VARCHAR)
-
-### Data Flow Design
-1. Student enters borrowing details
-2. Data is sent to PHP backend
-3. Data is stored in MySQL database
-4. Confirmation message is displayed
+SDLC Report
+1. Planning
+Problem: Manual tracking of books and student borrowing is slow and error-prone.
+Solution: LMS automates book management, borrowing, and returning processes, improving efficiency and accuracy.
+2. Requirements
+Functional Requirements
+Add/Edit/Delete users (students/librarians)
+Add/Edit/Delete books
+Borrow books (check availability)
+Return books
+View borrowing history and reports
+Non-Functional Requirements
+Web-based interface, responsive and user-friendly
+Fast and reliable operations
+Secure access to prevent unauthorized changes
+3. Design
+Database Structure
+Students(StudentID, Name, Email)
+Books(BookID, Title, Author, Quantity)
+BorrowRecords(BorrowID, StudentID, BookID, BorrowDate, ReturnDate)
+UML Overview
+Use-case: Students borrow/return books; admin manages books/users.
+Classes: Student, Book, BorrowRecord, LibrarySystem.
+4. Implementation
+Frontend: HTML/CSS/JS
+index.html → Borrow books
+return.html → Return books
+users.html → Manage users
+catalog.html → View all books
+Backend: Python + Flask (backend/app.py)
+Database: SQLite (database/library.db)
+JavaScript: Handles form submission and communicates with backend using Fetch API.
+5. Testing
+Unit Testing: Validated borrow and return functions.
+Integration Testing: Borrowing reduces book quantity; returning increases it.
+UI Testing: Forms and buttons function correctly, error messages displayed when needed.
+6. Deployment
+Frontend: GitHub Pages (static pages)
+Backend: Flask server deployed locally or on Heroku/Railway
+Database: SQLite
+7. Maintenance
+Regular updates to add new features or fix bugs
+Database backups and migration
+UI improvements based on feedback
+8. SDLC to Implementation Mapping
+SDLC Name	Implementation Name
+Student	StudentID, Name, Email
+Book	BookID, Title, Author, Quantity
+BorrowRecord	BorrowID, StudentID, BookID, BorrowDate, ReturnDate
+LibrarySystem	backend/app.py + database/library.db
+9. How to Run Locally
+Install Python and Flask:
+pip install flask
